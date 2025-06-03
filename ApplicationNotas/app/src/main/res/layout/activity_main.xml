@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg3"
     tools:context=".MainActivity">
 
     <EditText
@@ -53,10 +53,10 @@
         app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_observacion"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintVertical_bias="0.892" />
 
     <Button
         android:id="@+id/btn_calcular"
@@ -69,10 +69,10 @@
         app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_observacion"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintVertical_bias="0.063" />
 
     <TextView
         android:id="@+id/lbl_observacion"
@@ -172,7 +172,7 @@
         android:fontFamily="monospace"
         android:text="Promedio de Notas"
         android:textAllCaps="true"
-        android:textColor="#FFEA00"
+        android:textColor="#FFFF00"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -187,8 +187,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nota 1:"
-        android:textColor="#FFEA00"
-        android:textColorHighlight="#FFEA00"
+        android:textColor="#FFFF00"
+        android:textColorHighlight="#FFFF00"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -209,10 +209,10 @@
         app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintHorizontal_bias="0.143"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_observacion"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintVertical_bias="0.067" />
 
     <EditText
         android:id="@+id/txt_nota1"
@@ -231,4 +231,62 @@
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.432" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="138dp"
+        android:layout_height="125dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_nuevo"
+        app:layout_constraintVertical_bias="0.372">
+
+        <RadioButton
+            android:id="@+id/rbtn3"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="Multiplicar"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbtn4"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="Dividir"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbtn1"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="Sumar"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbtn2"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="Restar"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/chbx_mensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mensaje"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_salir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/btn_calcular" />
 </androidx.constraintlayout.widget.ConstraintLayout>
