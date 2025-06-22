@@ -6,18 +6,21 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
-
     lateinit var rbGarfield: RadioButton
     lateinit var rbSimios: RadioButton
     lateinit var rbBarbie: RadioButton
     lateinit var rbGuerra: RadioButton
     lateinit var rbVaguito: RadioButton
+
     lateinit var txtEntradas: EditText
     lateinit var txtCosto: EditText
+
     lateinit var cbBebida: CheckBox
     lateinit var cbCanchita: CheckBox
     lateinit var cbHamburguesa: CheckBox
+
     lateinit var lbResultado: TextView
+
     lateinit var btnNuevo: Button
     lateinit var btnCalcular: Button
     lateinit var btnCerrar: Button
@@ -25,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     var precioBebida = 7.0
     var precioCanchita = 25.0
     var precioHamburguesa = 15.0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,12 +56,9 @@ class MainActivity : AppCompatActivity() {
 
 
     fun calcular() {
-
-        // Obtener entradas y costo unitario
         val entradas = txtEntradas.text.toString().toInt()
         val costoUnitario = txtCosto.text.toString().toDouble()
 
-        // Determinar descuento según la película
         var descuento = 0.0
         if (rbGarfield.isChecked) {
             descuento = 0.10
@@ -98,7 +97,6 @@ class MainActivity : AppCompatActivity() {
         lbResultado.text = "Total: S/ ${total} - Subtotal: S/. ${costoSinDescuento + costoAlimentos} - S/. Descuento: ${montoDescuento} - Costo Alimentos: S/. ${costoAlimentos}"
     }
 
-
     fun nuevo() {
         rbGarfield.setChecked(false)
         rbSimios.setChecked(false)
@@ -125,6 +123,4 @@ class MainActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
-
 }

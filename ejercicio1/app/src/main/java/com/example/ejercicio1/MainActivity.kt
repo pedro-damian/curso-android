@@ -6,10 +6,10 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
-
     lateinit var cbCeviche: CheckBox
     lateinit var cbArrozPato: CheckBox
     lateinit var cbParihuela: CheckBox
+
     lateinit var txtCeviche: EditText
     lateinit var txtArrozPato: EditText
     lateinit var txtParihuela: EditText
@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var rbEmpresarial: RadioButton
     lateinit var rbFamiliar: RadioButton
     lateinit var rbNormal: RadioButton
+
     lateinit var lbResultado: TextView
 
     lateinit var btnNuevo: Button
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     val precioArrozPato = 50.0
     val precioParihuela = 60.0
     val IGV = 0.18
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         btnNuevo.setOnClickListener { nuevo() }
         btnCerrar.setOnClickListener { cerrar() }
         btnCalcular.setOnClickListener { calcular() }
-
 
     }
 
@@ -90,9 +89,7 @@ class MainActivity : AppCompatActivity() {
         val total = consumo + igv + costoPresentacion
 
         lbResultado.text = "Total: S/. ${total} - IGV: ${String.format("%.1f", igv)} - Consumo: S/. ${consumo} - Costo de Mesa: S/. ${costoPresentacion}"
-
     }
-
 
     fun nuevo() {
         cbCeviche.setChecked(false)
@@ -110,7 +107,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun cerrar(){
-
         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
         builder
             .setMessage("Fin de la aplicacion")
@@ -121,6 +117,4 @@ class MainActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
-
 }

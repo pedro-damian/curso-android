@@ -8,6 +8,19 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Costo Unitario:"
+        android:textColor="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.732"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.314" />
+
+    <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,35 +83,35 @@
             android:id="@+id/rb_vaguito"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vaguito (1% descuento)"
+            android:text="Vaguito (1% desc)"
             android:textColor="#FFFFFF" />
 
         <RadioButton
             android:id="@+id/rb_guerra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="La Guerra de los Mundos (10% descuento)"
+            android:text="La Guerra de los Mundos (10% desc)"
             android:textColor="#FFFFFF" />
 
         <RadioButton
             android:id="@+id/rb_barbie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Barbie (25% descuento)"
+            android:text="Barbie (25% desc)"
             android:textColor="#FFFFFF" />
 
         <RadioButton
             android:id="@+id/rb_simios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="El Planeta de los Simios (5% descuento)"
+            android:text="El Planeta de los Simios (5% desc)"
             android:textColor="#FFFFFF" />
 
         <RadioButton
             android:id="@+id/rb_garfield"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Garfield (10% descuento)"
+            android:text="Garfield (10% desc)"
             android:textColor="#FFFFFF" />
     </RadioGroup>
 
@@ -116,7 +129,7 @@
         app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342" />
+        app:layout_constraintVertical_bias="0.235" />
 
     <EditText
         android:id="@+id/txt_costo"
@@ -132,7 +145,7 @@
         app:layout_constraintHorizontal_bias="0.936"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.242" />
+        app:layout_constraintVertical_bias="0.358" />
 
     <TextView
         android:id="@+id/textView3"
@@ -215,10 +228,10 @@
         app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.864"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.633" />
 
     <Button
         android:id="@+id/btn_calcular"
@@ -232,10 +245,10 @@
         app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintHorizontal_bias="0.909"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
+        app:layout_constraintVertical_bias="0.528" />
 
     <Button
         android:id="@+id/btn_cerrar"
@@ -252,7 +265,20 @@
         app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688" />
+        app:layout_constraintVertical_bias="0.742" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N° Entradas:"
+        android:textColor="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.705"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

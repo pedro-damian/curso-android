@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/camaravideo"
+        android:icon="@drawable/camara"
         android:label="App Cine"
-        android:roundIcon="@drawable/camaravideo"
+        android:roundIcon="@drawable/camara"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ejercicio2">
         <activity
