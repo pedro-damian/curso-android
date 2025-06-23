@@ -18,12 +18,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var rbEmpresarial: RadioButton
     lateinit var rbFamiliar: RadioButton
     lateinit var rbNormal: RadioButton
+    lateinit var rgMesa: RadioGroup
 
     lateinit var lbResultado: TextView
 
     lateinit var btnNuevo: Button
     lateinit var btnCalcular: Button
     lateinit var btnCerrar: Button
+
+    lateinit var dialogBuilder: AlertDialog.Builder
 
     val precioCeviche = 40.0
     val precioArrozPato = 50.0
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         txtArrozPato = findViewById(R.id.et_arroz_pato)
         txtParihuela = findViewById(R.id.et_parihuela)
 
+        rgMesa = findViewById(R.id.rgMesa)
         rbVip = findViewById(R.id.rb_vip)
         rbEmpresarial = findViewById(R.id.rb_empresarial)
         rbFamiliar = findViewById(R.id.rb_familiar)
@@ -55,9 +59,83 @@ class MainActivity : AppCompatActivity() {
         btnCerrar.setOnClickListener { cerrar() }
         btnCalcular.setOnClickListener { calcular() }
 
+        // Inicializar dialogBuilder
+        dialogBuilder = AlertDialog.Builder(this).setTitle("Error de datos")
+
+    }
+
+    fun validar(): Boolean {
+        if (!cbCeviche.isChecked && !cbArrozPato.isChecked && !cbParihuela.isChecked) {
+            dialogBuilder.setMessage("Seleccione al menos un plato")
+            dialogBuilder.create().show()
+            return false
+        }
+        // Validar cantidades para los platos seleccionados
+        try {
+            if (cbCeviche.isChecked) {
+                if (txtCeviche.text.toString().trim().isEmpty()) {
+                    dialogBuilder.setMessage("Ingrese la cantidad para Ceviche")
+                    dialogBuilder.create().show()
+                    txtCeviche.requestFocus()
+                    return false
+                }
+                val qty = txtCeviche.text.toString().toDouble()
+                if (qty <= 0) {
+                    dialogBuilder.setMessage("La cantidad de Ceviche debe ser mayor a 0")
+                    dialogBuilder.create().show()
+                    txtCeviche.requestFocus()
+                    return false
+                }
+            }
+            if (cbArrozPato.isChecked) {
+                if (txtArrozPato.text.toString().trim().isEmpty()) {
+                    dialogBuilder.setMessage("Ingrese la cantidad para Arroz con Pato")
+                    dialogBuilder.create().show()
+                    txtArrozPato.requestFocus()
+                    return false
+                }
+                val qty = txtArrozPato.text.toString().toDouble()
+                if (qty <= 0) {
+                    dialogBuilder.setMessage("La cantidad de Arroz con Pato debe ser mayor a 0")
+                    dialogBuilder.create().show()
+                    txtArrozPato.requestFocus()
+                    return false
+                }
+            }
+            if (cbParihuela.isChecked) {
+                if (txtParihuela.text.toString().trim().isEmpty()) {
+                    dialogBuilder.setMessage("Ingrese la cantidad para Parihuela")
+                    dialogBuilder.create().show()
+                    txtParihuela.requestFocus()
+                    return false
+                }
+                val qty = txtParihuela.text.toString().toDouble()
+                if (qty <= 0) {
+                    dialogBuilder.setMessage("La cantidad de Parihuela debe ser mayor a 0")
+                    dialogBuilder.create().show()
+                    txtParihuela.requestFocus()
+                    return false
+                }
+            }
+        } catch (e: NumberFormatException) {
+            dialogBuilder.setMessage("Ingrese cantidades numéricas válidas")
+            dialogBuilder.create().show()
+            txtCeviche.requestFocus()
+            return false
+        }
+
+        // Verificar que se haya seleccionado una ubicación
+        if (rgMesa.checkedRadioButtonId == -1) {
+            dialogBuilder.setMessage("Seleccione una ubicación de mesa")
+            dialogBuilder.create().show()
+            return false
+        }
+
+        return true
     }
 
     fun calcular() {
+        if (!validar()) return
 
         var consumo = 0.0
         // Calcular consumo por platos
