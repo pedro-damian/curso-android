@@ -19,7 +19,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:lottie_imageAssetsFolder="assets"
-        app:lottie_fileName="book.json"
+        app:lottie_fileName="libro.json"
         app:lottie_autoPlay="true"
         app:lottie_loop="true" />
 
