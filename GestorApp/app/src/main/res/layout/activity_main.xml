@@ -16,15 +16,77 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp" />
     <TextView
+        android:id="@+id/tvLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:textSize="22sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_below="@id/ivLogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@id/tvLogo"
+        android:layout_marginTop="10dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/etUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/usuario" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/clave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/usuario"
+                app:passwordToggleEnabled="true"
+                android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/etClave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="@string/clave" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/olvidaste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/olvidaste_contrasena"
+                android:layout_below="@id/clave"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp" />
+
+            <Button
+                android:id="@+id/btnIngresar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/olvidaste"
+                android:layout_marginTop="15dp"
+                android:text="@string/ingresar"
+                android:backgroundTint="@color/black    "
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 
 </RelativeLayout>
