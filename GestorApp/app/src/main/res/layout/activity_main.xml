@@ -6,6 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gris"
     tools:context=".MainActivity">
 
     <ImageView
@@ -80,8 +81,27 @@
                 android:layout_below="@id/olvidaste"
                 android:layout_marginTop="15dp"
                 android:text="@string/ingresar"
-                android:backgroundTint="@color/black    "
+                android:backgroundTint="@color/verde"
                 />
+            <Button
+                android:id="@+id/btnWeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnIngresar"
+                android:text="@string/web"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/azul" />
+            <TextView
+                android:id="@+id/tvRegistrate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_cuenta"
+                android:layout_below="@id/btnWeb"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true" />
+
 
         </RelativeLayout>
 
