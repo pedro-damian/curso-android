@@ -1,5 +1,6 @@
 package com.pedrodamian.gestorapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -34,5 +35,16 @@ public class PaginaWeb extends AppCompatActivity {
         // atrapa y lo contiene dentro de la actividad
         wvpagina.setWebViewClient(new WebViewClient());
 
+    }
+
+    // metodo para interactuar con la pagina sin que regrese al login
+    @SuppressLint("GestureBackNavigation")
+    @Override
+    public void onBackPressed() {
+        if(wvpagina.canGoBack()){
+            wvpagina.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

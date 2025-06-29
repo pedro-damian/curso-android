@@ -19,4 +19,20 @@
     <string name="ingresar">Ingresar</string>
     <string name="web">Pagina Web</string>
     <string name="no_cuenta">No tienes Cuenta, Registrate</string>
+
+    <!-- REGISTRO -->
+    <string name="titulo_registro">Registro Usuarios</string>
+    <string name="ingresar_datos">Ingresar Datos</string>
+    <string name="nombre">Nombre</string>
+    <string name="ingrese_nombre">Ingrese Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="ingrese_apellido">Ingrese Apellidos</string>
+    <string name="correo">Correo</string>
+    <string name="ingrese_correo">Ingrese Correo</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="ingrese_contrasena">Ingrese Contraseña</string>
+    <string name="registrar">Registrar</string>
+    <string name="ir_login">Ir a Login</string>
+
+    <!-- LOGIN -->
 </resources>
