@@ -1,7 +1,10 @@
 package com.example.applicationnotas
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import java.lang.NumberFormatException
@@ -22,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var e3:RadioButton
     lateinit var c1:CheckBox
     lateinit var cboxlista: Spinner
+    lateinit var imageButton : ImageButton
 
     var pr: Float=0f
     var mpr: String= ""
@@ -45,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         e2 = findViewById(R.id.rbtn_restar)
         e3 = findViewById(R.id.rbtn_multiplicar)
         cboxlista = findViewById(R.id.cbox_lista)
+        imageButton = findViewById(R.id.imageButton)
 
         var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,datos)
         cboxlista.setAdapter(adapter)
@@ -129,8 +134,40 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        imageButton.setOnClickListener {
+            val pantalla1 = Intent(this, MainActivity2::class.java)
+            startActivity(pantalla1)
+        }
     }
 
+    fun llamar() {
+        val pantalla1 = Intent(this, MainActivity2::class.java)
+        startActivity(pantalla1)
+        System.exit(0)
+    }
+
+    fun llamar2(){
+        val pantalla1 = Intent(this, MainActivity3::class.java)
+        startActivity(pantalla1)
+        System.exit(0)
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.ayuda -> Toast.makeText(this, "Contactanos por Whatsapp", Toast.LENGTH_SHORT).show()
+            R.id.quienes -> Toast.makeText(this, "Somos una Empresa con muchos años de experiencia",Toast.LENGTH_SHORT).show()
+            R.id.mensaje -> Toast.makeText(this, "Todo Funciona Correctamente", Toast.LENGTH_SHORT).show()
+            R.id.opcion -> llamar()
+            R.id.ventana3 -> llamar2()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     // verifica que los campos de notas no esten vacios
     fun validar():Boolean {

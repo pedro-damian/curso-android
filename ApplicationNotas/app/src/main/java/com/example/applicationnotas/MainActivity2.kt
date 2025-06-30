@@ -11,6 +11,7 @@ import android.widget.Toast
 class MainActivity2 : AppCompatActivity() {
 
     lateinit var btnRegresar : Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -18,10 +19,9 @@ class MainActivity2 : AppCompatActivity() {
         btnRegresar = findViewById(R.id.btnRegresar)
 
         btnRegresar.setOnClickListener {
-            System.exit(0)
-
             val pantalla2 = Intent(this, MainActivity::class.java)
             startActivity(pantalla2)
+            System.exit(0)
         }
 
     }
@@ -31,10 +31,11 @@ class MainActivity2 : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    fun llamar() {
-        System.exit(0)
-        val pantalla1 = Intent(this, MainActivity::class.java)
+
+    fun llamar2() {
+        val pantalla1 = Intent(this, MainActivity3::class.java)
         startActivity(pantalla1)
+        System.exit(0)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -43,7 +44,8 @@ class MainActivity2 : AppCompatActivity() {
             R.id.quienes -> Toast.makeText(this, "Somos una Empresa con muchos años de experiencia",
                 Toast.LENGTH_SHORT).show()
             R.id.mensaje -> Toast.makeText(this, "Todo Funciona Correctamente", Toast.LENGTH_SHORT).show()
-            R.id.opcion -> llamar()
+
+            R.id.ventana3 -> llamar2()
         }
         return super.onOptionsItemSelected(item)
     }

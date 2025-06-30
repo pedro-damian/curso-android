@@ -6,17 +6,16 @@
         android:id="@+id/quienes"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Quienes Somos"
-        app:showAsAction="always" />
+        app:showAsAction="always|withText" />
     <item
         android:id="@+id/ayuda"
         android:icon="@drawable/ic_baseline_help_24"
-        android:title="Ayuda"
-        app:showAsAction="always" />
+        android:title="Ayuda" />
     <item
         android:id="@+id/mensaje"
-        android:checkable="false"
         android:icon="@drawable/ic_baseline_message_24"
         android:title="Mensaje" />
+
     <item
         android:id="@+id/opcion"
         android:title="Desarrollador" />

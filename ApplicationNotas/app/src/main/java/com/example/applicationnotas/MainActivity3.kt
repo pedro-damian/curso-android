@@ -17,17 +17,16 @@ class MainActivity3 : AppCompatActivity() {
         btnVolver = findViewById(R.id.btnVolver)
 
         btnVolver.setOnClickListener {
-            System.exit(0)
-
             val pantalla3 = Intent(this, MainActivity::class.java)
             startActivity(pantalla3)
+            System.exit(0)
         }
     }
 
     fun llamar() {
-        System.exit(0)
-        val pantalla1 = Intent(this, MainActivity::class.java)
+        val pantalla1 = Intent(this, MainActivity2::class.java)
         startActivity(pantalla1)
+        System.exit(0)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
