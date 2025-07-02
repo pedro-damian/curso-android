@@ -57,7 +57,7 @@
             android:gravity="left" />
 
         <EditText
-            android:id="@+id/etMesa"
+            android:id="@+id/etRUC"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:hint="ingrese mesa"
@@ -118,6 +118,7 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:gravity="left" />
+
         <Spinner
             android:id="@+id/cbox_mozos"
             android:layout_width="match_parent"
@@ -146,21 +147,21 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cbRetiros"
+                android:id="@+id/cbGaseosa"
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
-                android:text="Ceviche (S/.20)"
+                android:text="Gaseosa (S/.20)"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etCeviche"
+                android:id="@+id/etGaseosa"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@color/white"
                 android:enabled="false"
                 android:gravity="center"
-                android:hint="numero de platos"
+                android:hint="numero de bebidas"
                 android:inputType="numberDecimal"
                 android:textSize="14sp" />
 
@@ -171,21 +172,21 @@
             android:orientation="horizontal"
             android:gravity="start" >
             <CheckBox
-                android:id="@+id/cbVentas"
+                android:id="@+id/cbChicha"
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
-                android:text="Tallarin Verde (S/.15)"
+                android:text="Jarra Chicha Morada (S/.15)"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etVentas"
+                android:id="@+id/etChicha"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@color/white"
                 android:enabled="false"
                 android:gravity="center"
-                android:hint="numero de platos"
+                android:hint="numero de bebidas"
                 android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
@@ -194,21 +195,21 @@
             android:orientation="horizontal"
             android:gravity="start">
             <CheckBox
-                android:id="@+id/cbCreditos"
+                android:id="@+id/cbLimonada"
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
-                android:text="Arroz con Pollo (S/.12)"
+                android:text="Jarra Limonada (S/.12)"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etCreditos"
+                android:id="@+id/etLimonada"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@color/white"
                 android:enabled="false"
                 android:gravity="center"
-                android:hint="numero de platos"
+                android:hint="numero de bebidas"
                 android:textSize="14sp" />
         </LinearLayout>
 

@@ -56,6 +56,4 @@ class Menu : AppCompatActivity() {
         startActivity(pantalla5)
         System.exit(0)
     }
-
-
 }
