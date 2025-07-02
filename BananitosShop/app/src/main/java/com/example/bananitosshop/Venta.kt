@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 
@@ -25,6 +26,11 @@ class Venta : AppCompatActivity() {
     lateinit var dialogBuilder: AlertDialog.Builder
 
     var datos = arrayOf("Zapatillas", "Polo", "Pantalon", "Medias", "Casacas")
+    var Zapatillas = 100.0
+    var Polo = 30.0
+    var Pantalon = 120.0
+    var Medias = 15.0
+    var Casacas = 180.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,13 +53,44 @@ class Venta : AppCompatActivity() {
         var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, datos)
         cboxLista.setAdapter(adapter)
 
+
+        // Actualizar precio al seleccionar producto
+        cboxLista.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val producto = datos[position]
+                val precio = when (producto) {
+                    "Zapatillas" -> 100.0
+                    "Polo" -> 30.0
+                    "Pantalón" -> 80.0
+                    "Medias" -> 10.0
+                    "Casacas" -> 150.0
+                    else -> 0.0
+                }
+                etPrecio.setText(String.format("%.1f", precio))
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                etPrecio.setText("0.0")
+            }
+        }
+
+
         btnNuevo.setOnClickListener { nuevo() }
         btnCalcular.setOnClickListener { calcular() }
 
     }
 
     fun nuevo () {
-
+        etNombre.setText("")
+        etRUC.setText("")
+        etFecha.setText("")
+        etComprobante.setText("")
+        etCantidad.setText("")
+        etPrecio.setText("0.0")
+        rbDescuento10.isChecked = false
+        rbDescuento20.isChecked = false
+        cboxLista.setSelection(0)
+        tvResultado.text = "Total a pagar: S/ 0.00"
+        etNombre.requestFocus()
     }
 
 
@@ -64,14 +101,27 @@ class Venta : AppCompatActivity() {
         val ruc = etRUC.text.toString()
         val fecha = etFecha.text.toString()
         val comprobante = etComprobante.text.toString()
-        //val producto = cboxLista.selectedItem.toString()
-        val precio = etPrecio.text.toString().toDouble()
+        val producto = cboxLista.selectedItem.toString()
+        var precio = 0.0
         val cantidad = etCantidad.text.toString().toInt()
 
-        var opcion: String = cboxLista.selectedItem.toString()
-        if(opcion.equals("Zapatillas")){
-            var precio = 100.0
-            etPrecio.setText(precio.toString())
+        //var opcion: String = cboxLista.selectedItem.toString()
+        if(producto.equals("Zapatillas")){
+            precio = 100.0
+            // etPrecio.setText(precio.toString())
+            etPrecio.setText(String.format("%.1f", precio))
+        } else if (producto == "Polo") {
+            precio = 30.0
+            etPrecio.setText(String.format("%.1f", precio))
+        } else if (producto == "Pantalon") {
+            precio = 80.0
+            etPrecio.setText(String.format("%.1f", precio))
+        } else if (producto == "Medias") {
+            precio = 10.0
+            etPrecio.setText(String.format("%.1f", precio))
+        } else if (producto == "Casacas") {
+            precio = 150.0
+            etPrecio.setText(String.format("%.1f", precio))
         }
 
         // Determinar descuento
@@ -85,14 +135,13 @@ class Venta : AppCompatActivity() {
         val total = subtotal - montoDescuento
 
         // Formatear números
-        // val df = DecimalFormat("#.00")
+
         tvResultado.text = """
             Detalles de la Venta:
             Cliente: $nombre
             RUC: $ruc
             Fecha: $fecha
             Comprobante: $comprobante
-            
             Cantidad: $cantidad
             Precio unitario: S/ ${String.format("%.1f", precio)}
             Subtotal: S/ ${String.format("%.1f", subtotal)}
