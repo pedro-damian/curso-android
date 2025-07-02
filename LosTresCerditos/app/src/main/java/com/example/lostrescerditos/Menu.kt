@@ -1,4 +1,4 @@
-package com.example.bananitosshop
+package com.example.lostrescerditos
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,16 +6,26 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 
-class Tienda : AppCompatActivity() {
-
+class Menu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tienda)
+        setContentView(R.layout.activity_menu)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.inicio -> inicio()
+            R.id.about -> about()
+            R.id.platos -> platos()
+            R.id.bebidas -> bebidas()
+            R.id.consumo -> consumo()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun about() {
@@ -30,25 +40,22 @@ class Tienda : AppCompatActivity() {
         System.exit(0)
     }
 
-    fun venta() {
-        val pantalla3 = Intent(this, Venta::class.java)
+    fun platos() {
+        val pantalla3 = Intent(this, PedidosPlatos::class.java)
         startActivity(pantalla3)
         System.exit(0)
     }
 
-    fun caja() {
-        val pantalla4 = Intent(this, Caja::class.java)
+    fun bebidas() {
+        val pantalla4 = Intent(this, PedidosBebidas::class.java)
         startActivity(pantalla4)
         System.exit(0)
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.inicio -> inicio()
-            R.id.about -> about()
-            R.id.venta -> venta()
-            R.id.caja -> caja()
-        }
-        return super.onOptionsItemSelected(item)
+    fun consumo() {
+        val pantalla5 = Intent(this, PagoConsumo::class.java)
+        startActivity(pantalla5)
+        System.exit(0)
     }
+
+
 }

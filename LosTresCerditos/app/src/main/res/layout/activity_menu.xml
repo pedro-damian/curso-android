@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_ropa4"
-    tools:context=".AboutUs">
+    android:background="@drawable/fondo_comida10"
+    tools:context=".Menu">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -19,51 +19,69 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quienes Somos?"
+            android:text="Menu"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             android:gravity="center" />
 
-
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Platos"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="left" />
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/empresa_ropa" />
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/platos"
+            android:scaleType="centerCrop"
+            />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Historia"
+            android:text="Bebidas"
             android:textColor="@color/white"
             android:layout_marginTop="15dp"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:gravity="center" />
+            android:gravity="left" />
 
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/bebidas"
+            android:scaleType="centerCrop"
+            />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BananitosShop nació en el año 2017 en el corazón del emporio textil de Gamarra, La Victoria – uno de los centros de moda y producción textil más importantes de Sudamérica. La fundadora, María Elena Quispe, una joven diseñadora huancaína, siempre soñó con crear una marca de ropa urbana con identidad peruana, colorida, alegre y pensada especialmente para jóvenes creativos y con estilo.
-
-La inspiración detrás del nombre “BananitosShop” vino de su hijo pequeño, quien siempre llevaba un peluche de plátano a sus talleres. El nombre, divertido y fresco, refleja la esencia de la marca: autenticidad, energía y un toque tropical.
-La marca empezó vendiendo polos y hoodies en una pequeña galería en Jr. Gamarra, con un puesto decorado con plantas, luces LED y dibujos de plátanos con lentes. Rápidamente captó la atención de los transeúntes por su estilo desenfadado, colores llamativos y mensajes empoderadores."
+            android:text="Platos Especiales"
             android:textColor="@color/white"
             android:layout_marginTop="15dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:gravity="left" />
 
-
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/especiales"
+            android:scaleType="centerCrop"
+            />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 </ScrollView>

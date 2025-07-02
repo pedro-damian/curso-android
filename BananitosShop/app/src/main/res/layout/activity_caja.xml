@@ -39,7 +39,7 @@
         android:id="@+id/etFecha"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:hint="ingrese fecha"
+        android:hint="ingrese fecha (dd/mm/yyyy)"
         android:textSize="14sp"
         android:layout_marginTop="3dp"
         android:background="@color/white"
@@ -98,8 +98,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@color/white"
+                android:enabled="false"
                 android:gravity="center"
                 android:hint="monto"
+                android:inputType="numberDecimal"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -124,6 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@color/white"
+            android:enabled="false"
             android:gravity="center"
             android:hint="monto"
             android:textSize="14sp" />
@@ -147,9 +150,10 @@
                 android:id="@+id/etCreditos"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="monto"
                 android:background="@color/white"
+                android:enabled="false"
                 android:gravity="center"
+                android:hint="monto"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -186,9 +190,10 @@
                 android:id="@+id/etAlquiler"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="monto"
                 android:background="@color/white"
+                android:enabled="false"
                 android:gravity="center"
+                android:hint="monto"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -213,9 +218,10 @@
                 android:id="@+id/etLuz"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="monto"
                 android:background="@color/white"
+                android:enabled="false"
                 android:gravity="center"
+                android:hint="monto"
                 android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
@@ -237,9 +243,10 @@
                 android:id="@+id/etAgua"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="monto"
                 android:background="@color/white"
+                android:enabled="false"
                 android:gravity="center"
+                android:hint="monto"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -262,9 +269,10 @@
                 android:id="@+id/etImpuestos"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="monto"
                 android:background="@color/white"
+                android:enabled="false"
                 android:gravity="center"
+                android:hint="monto"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -287,9 +295,10 @@
                 android:id="@+id/etEmpleados"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="monto"
                 android:background="@color/white"
+                android:enabled="false"
                 android:gravity="center"
+                android:hint="monto"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -312,9 +321,10 @@
                 android:id="@+id/etOtros"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:hint="monto"
                 android:background="@color/white"
+                android:enabled="false"
                 android:gravity="center"
+                android:hint="monto"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -367,6 +377,7 @@
             android:background="@color/white"
             android:gravity="left"
             android:textSize="14sp"
+            android:layout_marginBottom="20dp"
             android:textStyle="bold" />
 
 

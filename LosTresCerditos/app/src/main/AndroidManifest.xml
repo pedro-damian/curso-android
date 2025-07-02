@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LosTresCerditos">
         <activity
+            android:name=".PagoConsumo"
+            android:exported="true" />
+        <activity
+            android:name=".PedidosBebidas"
+            android:exported="true" />
+        <activity
+            android:name=".PedidosPlatos"
+            android:exported="true" />
+        <activity
+            android:name=".AboutUs"
+            android:exported="true" />
+        <activity
+            android:name=".Menu"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

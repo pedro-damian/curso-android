@@ -1,4 +1,4 @@
-package com.example.bananitosshop
+package com.example.lostrescerditos
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,8 +17,19 @@ class AboutUs : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    fun tienda() {
-        val pantalla1 = Intent(this, Tienda::class.java)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.inicio -> inicio()
+            R.id.menu -> menu()
+            R.id.platos -> platos()
+            R.id.bebidas -> bebidas()
+            R.id.consumo -> consumo()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun menu() {
+        val pantalla1 = Intent(this, com.example.lostrescerditos.Menu::class.java)
         startActivity(pantalla1)
         System.exit(0)
     }
@@ -29,26 +40,20 @@ class AboutUs : AppCompatActivity() {
         System.exit(0)
     }
 
-    fun venta() {
-        val pantalla3 = Intent(this, Venta::class.java)
+    fun platos() {
+        val pantalla3 = Intent(this, PedidosPlatos::class.java)
         startActivity(pantalla3)
         System.exit(0)
     }
 
-    fun caja() {
-        val pantalla4 = Intent(this, Caja::class.java)
+    fun bebidas() {
+        val pantalla4 = Intent(this, PedidosBebidas::class.java)
         startActivity(pantalla4)
         System.exit(0)
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.inicio -> inicio()
-            R.id.tienda -> tienda()
-            R.id.venta -> venta()
-            R.id.caja -> caja()
-        }
-        return super.onOptionsItemSelected(item)
+    fun consumo() {
+        val pantalla5 = Intent(this, PagoConsumo::class.java)
+        startActivity(pantalla5)
+        System.exit(0)
     }
-
 }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_ropa4"
+    android:background="@drawable/fondo_comida2"
     tools:context=".AboutUs">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -30,8 +30,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/empresa_ropa" />
+            android:layout_marginTop="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/historia" />
 
         <TextView
             android:id="@+id/textView5"
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="Historia"
             android:textColor="@color/white"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:textSize="18sp"
             android:textStyle="bold"
             android:gravity="center" />
@@ -50,10 +51,9 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BananitosShop nació en el año 2017 en el corazón del emporio textil de Gamarra, La Victoria – uno de los centros de moda y producción textil más importantes de Sudamérica. La fundadora, María Elena Quispe, una joven diseñadora huancaína, siempre soñó con crear una marca de ropa urbana con identidad peruana, colorida, alegre y pensada especialmente para jóvenes creativos y con estilo.
+            android:text="La historia de Tres Cerditos comienza en el año 2015, en un modesto local en Pueblo Libre, Lima, cuando tres hermanos – Jorge, Martín y Ricardo Ramírez – decidieron unir sus talentos para crear algo único: un restaurante que honrara las raíces de la cocina peruana, pero con un concepto divertido, familiar y lleno de cariño.
 
-La inspiración detrás del nombre “BananitosShop” vino de su hijo pequeño, quien siempre llevaba un peluche de plátano a sus talleres. El nombre, divertido y fresco, refleja la esencia de la marca: autenticidad, energía y un toque tropical.
-La marca empezó vendiendo polos y hoodies en una pequeña galería en Jr. Gamarra, con un puesto decorado con plantas, luces LED y dibujos de plátanos con lentes. Rápidamente captó la atención de los transeúntes por su estilo desenfadado, colores llamativos y mensajes empoderadores."
+De pequeños, sus padres los llamaban cariñosamente “los tres cerditos” porque siempre estaban juntos y, sobre todo, ¡porque les encantaba comer! Ese apodo se convirtió en símbolo de unión, ternura y un amor compartido por la comida criolla."
             android:textColor="@color/white"
             android:layout_marginTop="15dp"
             android:textSize="12sp"
@@ -64,6 +64,5 @@ La marca empezó vendiendo polos y hoodies en una pequeña galería en Jr. Gamar
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 </ScrollView>
