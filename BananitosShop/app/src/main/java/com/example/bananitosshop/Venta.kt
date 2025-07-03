@@ -25,7 +25,7 @@ class Venta : AppCompatActivity() {
     lateinit var tvResultado: TextView
     lateinit var dialogBuilder: AlertDialog.Builder
 
-    var datos = arrayOf("Zapatillas S/.100", "Polo S/.30", "Pantalon S/.120", "Medias S/.15", "Casacas S/.180")
+    var datos = arrayOf("Seleccione un articulo","Zapatillas S/.100", "Polo S/.30", "Pantalon S/.120", "Medias S/.15", "Casacas S/.180")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -37,7 +37,7 @@ class Caja : AppCompatActivity() {
     lateinit var btnNuevo: Button
     lateinit var btnCalcular: Button
     lateinit var tvResultado: TextView
-    lateinit var dialogBuilder: AlertDialog.Builder
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,18 +67,26 @@ class Caja : AppCompatActivity() {
         btnNuevo = findViewById(R.id.btnNuevo)
         btnCalcular = findViewById(R.id.btnCalcular)
         tvResultado = findViewById(R.id.tvResultado)
-        dialogBuilder = AlertDialog.Builder(this).setTitle("Error de datos")
 
 
-        cbRetiros.setOnCheckedChangeListener { _, isChecked -> etRetiros.isEnabled = isChecked }
-        cbVentas.setOnCheckedChangeListener { _, isChecked -> etVentas.isEnabled = isChecked }
-        cbCreditos.setOnCheckedChangeListener { _, isChecked -> etCreditos.isEnabled = isChecked }
-        cbAlquiler.setOnCheckedChangeListener { _, isChecked -> etAlquiler.isEnabled = isChecked }
-        cbLuz.setOnCheckedChangeListener { _, isChecked -> etLuz.isEnabled = isChecked }
-        cbAgua.setOnCheckedChangeListener { _, isChecked -> etAgua.isEnabled = isChecked }
-        cbImpuestos.setOnCheckedChangeListener { _, isChecked -> etImpuestos.isEnabled = isChecked }
-        cbEmpleados.setOnCheckedChangeListener { _, isChecked -> etEmpleados.isEnabled = isChecked }
-        cbOtros.setOnCheckedChangeListener { _, isChecked -> etOtros.isEnabled = isChecked }
+        cbRetiros.setOnCheckedChangeListener { _, isChecked -> etRetiros.isEnabled = isChecked
+            etRetiros.setText(if (!isChecked) "" else etRetiros.text.toString())}
+        cbVentas.setOnCheckedChangeListener { _, isChecked -> etVentas.isEnabled = isChecked
+            etVentas.setText(if (!isChecked) "" else etVentas.text.toString())}
+        cbCreditos.setOnCheckedChangeListener { _, isChecked -> etCreditos.isEnabled = isChecked
+            etCreditos.setText(if (!isChecked) "" else etCreditos.text.toString())}
+        cbAlquiler.setOnCheckedChangeListener { _, isChecked -> etAlquiler.isEnabled = isChecked
+            etAlquiler.setText(if (!isChecked) "" else etAlquiler.text.toString())}
+        cbLuz.setOnCheckedChangeListener { _, isChecked -> etLuz.isEnabled = isChecked
+            etLuz.setText(if (!isChecked) "" else etLuz.text.toString())}
+        cbAgua.setOnCheckedChangeListener { _, isChecked -> etAgua.isEnabled = isChecked
+            etAgua.setText(if (!isChecked) "" else etAgua.text.toString())}
+        cbImpuestos.setOnCheckedChangeListener { _, isChecked -> etImpuestos.isEnabled = isChecked
+            etImpuestos.setText(if (!isChecked) "" else etImpuestos.text.toString())}
+        cbEmpleados.setOnCheckedChangeListener { _, isChecked -> etEmpleados.isEnabled = isChecked
+            etEmpleados.setText(if (!isChecked) "" else etEmpleados.text.toString())}
+        cbOtros.setOnCheckedChangeListener { _, isChecked -> etOtros.isEnabled = isChecked
+            etOtros.setText(if (!isChecked) "" else etOtros.text.toString())}
 
         btnNuevo.setOnClickListener { nuevo() }
         btnCalcular.setOnClickListener { calcular() }
@@ -86,7 +94,7 @@ class Caja : AppCompatActivity() {
     }
 
     fun calcular () {
-        val fecha = etFecha.text.toString()
+
         val saldoInicial = etSaldo.text.toString().toDouble()
 
         var totalIngresos = 0.0
@@ -202,5 +210,4 @@ class Caja : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 }
