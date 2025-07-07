@@ -10,7 +10,7 @@ class PagoConsumo : AppCompatActivity() {
 
     lateinit var etPedido: EditText
     lateinit var etComprobante: EditText
-    lateinit var etRUC: EditText // Usado para RUC
+    lateinit var etRUC: EditText
     lateinit var etFecha: EditText
     lateinit var etCliente: EditText
     lateinit var etImporte: EditText
@@ -34,20 +34,27 @@ class PagoConsumo : AppCompatActivity() {
         btnCalcular = findViewById(R.id.btnCalcular)
         tvResultado = findViewById(R.id.tvResultado)
 
+        // llama a las funciones de nuevo y calcular
         btnNuevo.setOnClickListener { nuevo() }
         btnCalcular.setOnClickListener { calcular() }
     }
 
     fun calcular() {
+        // se crean variables que recibiran los datos ingresados o seleccionados en la interfaz
         val pedido = etPedido.text.toString()
         val comprobante = etComprobante.text.toString()
         val cliente = etCliente.text.toString()
         val importe = etImporte.text.toString().toDouble()
 
+        // calcula el monto del IGV aplicado al importe
         val igv = importe * 0.18
+        // crea una variable descuento que almacena el resultado de la condicion
+        // si checkbox esta marcado calcula el descuento de 10% y si no esta marcado no hay descuento
         val descuento = if (cbDescuento.isChecked) importe * 0.10 else 0.0
+        // calcula el total a pagar
         val total = importe - descuento + igv
 
+        // muestra los detalles en una cadena multilinea
         tvResultado.text = """
            N° Pedido: ${pedido}
            N° Comprobante: ${comprobante}
@@ -57,10 +64,11 @@ class PagoConsumo : AppCompatActivity() {
            Total a pagar: ${total}
         """.trimIndent()
 
+        // mensaje de Toast Pago Registrado
         Toast.makeText(applicationContext, "¡Pago Registrado!", Toast.LENGTH_SHORT).show()
     }
 
-
+    // reinicia los elementos de la interfaz
     fun nuevo(){
         etPedido.setText("")
         etComprobante.setText("")

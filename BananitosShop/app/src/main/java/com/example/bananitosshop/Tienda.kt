@@ -17,6 +17,7 @@ class Tienda : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
+
     }
 
 //    estas funciones nos permiten navegar de la pantalla actual hacia los diferentes pantallas de la aplicacion

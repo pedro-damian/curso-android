@@ -23,8 +23,8 @@ class Venta : AppCompatActivity() {
     lateinit var btnNuevo : Button
     lateinit var btnCalcular : Button
     lateinit var tvResultado: TextView
-//    lateinit var dialogBuilder: AlertDialog.Builder
 
+    // variable datos que alamacena el arreglo de los articulos
     var datos = arrayOf("Seleccione un articulo","Zapatillas S/.100", "Polo S/.30", "Pantalon S/.120", "Medias S/.15", "Casacas S/.180")
 
 
@@ -43,7 +43,6 @@ class Venta : AppCompatActivity() {
         btnCalcular = findViewById(R.id.btnCalcular)
         tvResultado = findViewById(R.id.tvResultado)
         cboxLista = findViewById(R.id.cbox_lista)
-//        dialogBuilder = AlertDialog.Builder(this).setTitle("Error de datos")
 
 //      se crea una adaptador que va tomar los valores de el arreglo datos y mostrarlos en el spinner
         var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, datos)
@@ -126,11 +125,13 @@ class Venta : AppCompatActivity() {
         etNombre.requestFocus()
     }
 
+    //    este metodo se va encargar de crear el menu de opciones en esta actividad tienda
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    //    estas funciones nos permiten navegar de la pantalla actual hacia los diferentes pantallas de la aplicacion
     fun about() {
         val pantalla1 = Intent(this, AboutUs::class.java)
         startActivity(pantalla1)
@@ -155,6 +156,7 @@ class Venta : AppCompatActivity() {
         System.exit(0)
     }
 
+    //    este metodo evalua que accion va tomar cuando se selecciona un item del menu opciones y esto lo hace mediante el ID del elemento seleccionado
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.inicio -> inicio()

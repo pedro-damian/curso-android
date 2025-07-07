@@ -68,6 +68,7 @@ class Caja : AppCompatActivity() {
         tvResultado = findViewById(R.id.tvResultado)
 
 
+//         cuando el usuario marca el checkbox el campo de entradas se habilite y cuando lo desmarca se deshabilite borra los valores
         cbRetiros.setOnCheckedChangeListener { _, isChecked -> etRetiros.isEnabled = isChecked
             etRetiros.setText(if (!isChecked) "" else etRetiros.text.toString())}
         cbVentas.setOnCheckedChangeListener { _, isChecked -> etVentas.isEnabled = isChecked
@@ -87,6 +88,7 @@ class Caja : AppCompatActivity() {
         cbOtros.setOnCheckedChangeListener { _, isChecked -> etOtros.isEnabled = isChecked
             etOtros.setText(if (!isChecked) "" else etOtros.text.toString())}
 
+
         btnNuevo.setOnClickListener { nuevo() }
         btnCalcular.setOnClickListener { calcular() }
 
@@ -94,11 +96,16 @@ class Caja : AppCompatActivity() {
 
     fun calcular () {
 
+        // la variable saldoinicial recibe el valor del campo de entrada saldo
         val saldoInicial = etSaldo.text.toString().toDouble()
 
+
         var totalIngresos = 0.0
+        // condicional evalua si el checkbox esta marcado
         if (cbRetiros.isChecked) {
+            // los valores ingresados se almacenan en la variable monto
             val monto = etRetiros.text.toString().toDouble()
+            // la variable totalingreso suma y acumula el monto
             totalIngresos += monto
         }
         if (cbVentas.isChecked) {
@@ -110,9 +117,13 @@ class Caja : AppCompatActivity() {
             totalIngresos += monto
         }
 
+
         var totalGastos = 0.0
+        // evaluo si el checkbox esta marcado
         if (cbAlquiler.isChecked) {
+            // los valores ingresados se almacenan en la variable monto
             val monto = etAlquiler.text.toString().toDouble()
+            // la variable totalgasto suma y acumula el monto
             totalGastos += monto
         }
         if (cbLuz.isChecked) {
@@ -136,8 +147,10 @@ class Caja : AppCompatActivity() {
             totalGastos += monto
         }
 
+        // calcula el saldo final
         var saldoFinal = saldoInicial + totalIngresos - totalGastos
 
+        // muestra los detalles en una cadena multilinea
         tvResultado.text = """
             El saldo Inicial es: ${saldoInicial}
             Total Ingresos: ${totalIngresos}
@@ -146,6 +159,7 @@ class Caja : AppCompatActivity() {
             """.trimIndent()
     }
 
+    // reinicia los elementos de la interfaz
     fun nuevo() {
         etFecha.setText("")
         etSaldo.setText("")

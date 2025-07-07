@@ -44,11 +44,14 @@ class PedidosBebidas : AppCompatActivity() {
         btnCalcular = findViewById(R.id.btnCalcular)
         tvResultado = findViewById(R.id.tvResultado)
 
+        // variable mozos que alamacena el arreglo de los mozos
         val mozos = arrayOf("Seleccione un mozo", "Juan Pérez", "María López", "Carlos Gómez", "Ana Martínez", "Luis Torres")
+        // se crea una adaptador que va tomar los valores de el arreglo mozos y mostrarlos en el spinner
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mozos)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        cboxMozos.adapter = adapter
+        // vincula el adaptador con el elemento del spinner en la interfaz para mostrarlos
+        cboxMozos.setAdapter(adapter)
 
+        // cuando el usuario marca el checkbox el campo de entradas se habilite y cuando lo desmarca se deshabilite borra los valores
         cbGaseosa.setOnCheckedChangeListener { _, isChecked -> etGaseosa.isEnabled = isChecked
             etGaseosa.setText(if (!isChecked) "" else etGaseosa.text.toString()) }
         cbChicha.setOnCheckedChangeListener { _, isChecked -> etChicha.isEnabled = isChecked
@@ -56,12 +59,13 @@ class PedidosBebidas : AppCompatActivity() {
         cbLimonada.setOnCheckedChangeListener { _, isChecked -> etLimonada.isEnabled = isChecked
             etLimonada.setText(if (!isChecked) "" else etLimonada.text.toString())}
 
-
+        // llaman alas funciones nuevo y calcular
         btnNuevo.setOnClickListener { nuevo() }
         btnCalcular.setOnClickListener { calcular() }
     }
 
     fun calcular(){
+        // se crean variables que recibiran los datos ingresados o seleccionados en la interfaz
         val pedido = etPedido.text.toString()
         val mesa = etMesa.text.toString()
         val fecha = etFecha.text.toString()
@@ -70,9 +74,13 @@ class PedidosBebidas : AppCompatActivity() {
 
 
         var total = 0.0
+        // condicional que evalua si el checkbox esta marcado
         if (cbGaseosa.isChecked) {
+            // se crea una variable que almacena el valor ingresado en el campo de entrada
             val cantidad = etGaseosa.text.toString().toInt()
+            // calcula subtotal
             val subtotal = cantidad * 20.0
+            // la variable total va sumar y acumular subtotal
             total += subtotal
         }
         if (cbChicha.isChecked) {
@@ -86,6 +94,7 @@ class PedidosBebidas : AppCompatActivity() {
             total += subtotal
         }
 
+        // muestra los detalles en una cadena multilinea
         tvResultado.text = """
             N° Pedido: ${pedido}
             N° Mesa: ${mesa}
@@ -95,9 +104,11 @@ class PedidosBebidas : AppCompatActivity() {
             Total a Pagar: ${total}
         """.trimIndent()
 
+        // mensaje de Toast Pedido de Bebida Registrado
         Toast.makeText(applicationContext, "¡Pedido de Bebida Registrado!", Toast.LENGTH_SHORT).show()
     }
 
+    // reinicia los elementos de la interfaz
     fun nuevo() {
         etPedido.setText("")
         etMesa.setText("")

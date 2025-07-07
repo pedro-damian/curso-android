@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         btnContinuar = findViewById(R.id.btn_continuar)
         btnCerrar = findViewById(R.id.btn_cerrar)
 
+        // crea una funcion para navegar de la pantalla actual hacia la pantalla Menu
         btnContinuar.setOnClickListener {
             val pantalla1 = Intent(this, Menu::class.java)
             startActivity(pantalla1)

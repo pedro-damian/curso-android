@@ -23,7 +23,6 @@ class PedidosPlatos : AppCompatActivity() {
     lateinit var btnNuevo: Button
     lateinit var btnCalcular: Button
     lateinit var tvResultado: TextView
-    lateinit var dialogBuilder: AlertDialog.Builder
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,13 +44,14 @@ class PedidosPlatos : AppCompatActivity() {
         btnCalcular = findViewById(R.id.btnCalcular)
         tvResultado = findViewById(R.id.tvResultado)
 
-        dialogBuilder = AlertDialog.Builder(this).setTitle("Error de datos")
-
+        // variable mozos que alamacena el arreglo de los mozos
         val mozos = arrayOf("Seleccione un mozo", "Juan Pérez", "María López", "Carlos Gómez", "Ana Martínez", "Luis Torres")
+        // se crea una adaptador que va tomar los valores de el arreglo mozos y mostrarlos en el spinner
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mozos)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        cboxMozos.adapter = adapter
+        // vincula el adaptador con el elemento del spinner en la interfaz para mostrarlos
+        cboxMozos.setAdapter(adapter)
 
+        // cuando el usuario marca el checkbox el campo de entradas se habilite y cuando lo desmarca se deshabilite borra los valores
         cbCeviche.setOnCheckedChangeListener { _, isChecked -> etCeviche.isEnabled = isChecked
             etCeviche.setText(if (!isChecked) "" else etCeviche.text.toString()) }
         cbTallarin.setOnCheckedChangeListener { _, isChecked -> etTallarin.isEnabled = isChecked
@@ -59,12 +59,13 @@ class PedidosPlatos : AppCompatActivity() {
         cbArroz.setOnCheckedChangeListener { _, isChecked -> etArroz.isEnabled = isChecked
             etArroz.setText(if (!isChecked) "" else etArroz.text.toString())}
 
-
+        // llama a las funciones
         btnNuevo.setOnClickListener { nuevo() }
         btnCalcular.setOnClickListener { calcular() }
     }
 
     fun calcular(){
+        // se crean variables que recibiran los datos ingresados o seleccionados en la interfaz
         val pedido = etPedido.text.toString()
         val mesa = etMesa.text.toString()
         val fecha = etFecha.text.toString()
@@ -73,9 +74,13 @@ class PedidosPlatos : AppCompatActivity() {
 
 
         var total = 0.0
+        // condicional que evalua si el checkbox esta marcado
         if (cbCeviche.isChecked) {
+            // se crea una variable que almacena el valor ingresado en el campo de entrada
             val cantidad = etCeviche.text.toString().toInt()
+            // calcula subtotal
             val subtotal = cantidad * 20.0
+            // la variable total va sumar y acumular subtotal
             total += subtotal
         }
         if (cbTallarin.isChecked) {
@@ -89,6 +94,7 @@ class PedidosPlatos : AppCompatActivity() {
             total += subtotal
         }
 
+        // muestra los detalles en una cadena multilinea
         tvResultado.text = """
             N° Pedido: ${pedido}
             N° Mesa: ${mesa}
@@ -98,9 +104,11 @@ class PedidosPlatos : AppCompatActivity() {
             Total a Pagar: ${total}
         """.trimIndent()
 
+        // mensaje de Toast Pedido de Plato Registrado
         Toast.makeText(applicationContext, "¡Pedido de Plato Registrado!", Toast.LENGTH_SHORT).show()
     }
 
+    // reinicia los elementos de la interfaz
     fun nuevo() {
         etPedido.setText("")
         etMesa.setText("")
