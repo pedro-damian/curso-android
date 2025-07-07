@@ -39,7 +39,6 @@ class Caja : AppCompatActivity() {
     lateinit var tvResultado: TextView
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_caja)

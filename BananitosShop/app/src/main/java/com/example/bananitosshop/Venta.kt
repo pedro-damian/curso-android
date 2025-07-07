@@ -23,7 +23,7 @@ class Venta : AppCompatActivity() {
     lateinit var btnNuevo : Button
     lateinit var btnCalcular : Button
     lateinit var tvResultado: TextView
-    lateinit var dialogBuilder: AlertDialog.Builder
+//    lateinit var dialogBuilder: AlertDialog.Builder
 
     var datos = arrayOf("Seleccione un articulo","Zapatillas S/.100", "Polo S/.30", "Pantalon S/.120", "Medias S/.15", "Casacas S/.180")
 
@@ -43,17 +43,21 @@ class Venta : AppCompatActivity() {
         btnCalcular = findViewById(R.id.btnCalcular)
         tvResultado = findViewById(R.id.tvResultado)
         cboxLista = findViewById(R.id.cbox_lista)
-        dialogBuilder = AlertDialog.Builder(this).setTitle("Error de datos")
+//        dialogBuilder = AlertDialog.Builder(this).setTitle("Error de datos")
 
+//      se crea una adaptador que va tomar los valores de el arreglo datos y mostrarlos en el spinner
         var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, datos)
+//        vincula el adaptador con el elemento del spinner en la interfaz para mostrarlos
         cboxLista.setAdapter(adapter)
 
+        // la variable btnNuevo y btncalcular llama a la funcion nuevo y clacular respectivamente
         btnNuevo.setOnClickListener { nuevo() }
         btnCalcular.setOnClickListener { calcular() }
 
     }
 
     fun calcular() {
+        // se crean variables que recibiran los datos ingresados o seleccionados en la interfaz
         val nombre = etNombre.text.toString()
         val ruc = etRUC.text.toString()
         val fecha = etFecha.text.toString()
@@ -61,9 +65,11 @@ class Venta : AppCompatActivity() {
         val cantidad = etCantidad.text.toString().toInt()
         val producto = cboxLista.selectedItem.toString()
 
+//      se creo una variable preciounitario que almacena el precio del producto elegido
         var precioUnitario = 0.0
+        // evalua si el producto elegido en la lista desplegable de la interfaz es igual a la condicion
         if (producto == "Zapatillas S/.100") {
-            precioUnitario = 100.0
+            precioUnitario = 100.0  // si la condicion es verdadera establece el precio
         } else if (producto == "Polo S/.30") {
             precioUnitario = 30.0
         } else if (producto == "Pantalon S/.120") {
@@ -74,18 +80,22 @@ class Venta : AppCompatActivity() {
             precioUnitario = 180.0
         }
 
+        // calcula el subtotal
         val subtotal = cantidad * precioUnitario
 
         var descuento = 0.0
+        // evalua si el radiobutton de desc10% esta selecionado
         if (rbDescuento10.isChecked) {
-            descuento = 0.10
+            descuento = 0.10   // establece el descuento de 10%
         } else {
             descuento = 0.20
         }
 
+        // calcula el monto del descuento
         val montoDescuento = subtotal * descuento
         val total = subtotal - montoDescuento
 
+        // muestra los detalles en una cadena multilinea
         tvResultado.text = """
             Cliente: $nombre
             RUC: $ruc
@@ -98,10 +108,11 @@ class Venta : AppCompatActivity() {
             Total a pagar: S/ ${String.format("%.1f", total)}
         """.trimIndent()
 
+        // mensaje de Toast venta registrada
         Toast.makeText(applicationContext, "¡Venta Registrada!", Toast.LENGTH_SHORT).show()
     }
 
-
+// reinicia los elementos de la interfaz
     fun nuevo () {
         etNombre.setText("")
         etRUC.setText("")

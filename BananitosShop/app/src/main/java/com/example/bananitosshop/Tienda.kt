@@ -13,11 +13,13 @@ class Tienda : AppCompatActivity() {
         setContentView(R.layout.activity_tienda)
     }
 
+//    este metodo se va encargar de crear el menu de opciones en esta actividad tienda
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+//    estas funciones nos permiten navegar de la pantalla actual hacia los diferentes pantallas de la aplicacion
     fun about() {
         val pantalla1 = Intent(this, AboutUs::class.java)
         startActivity(pantalla1)
@@ -42,6 +44,7 @@ class Tienda : AppCompatActivity() {
         System.exit(0)
     }
 
+//    este metodo evalua que accion va tomar cuando se selecciona un item del menu opciones y esto lo hace mediante el ID del elemento seleccionado
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.inicio -> inicio()
