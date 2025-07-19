@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         val boton1=findViewById<Button>(R.id.btnagregar)
 
         tbproductos=findViewById(R.id.tbproductos)
-        tbproductos?.removeAllViews()
+        //tbproductos?.removeAllViews()
+
 
         boton1.setOnClickListener {
 
@@ -82,7 +83,6 @@ class MainActivity : AppCompatActivity() {
 
         if(!codigo.isEmpty()){
 
-
             et1?.setText(codigo.toString())
             et2?.setText(nombre.toString())
             et3?.setText(precio.toString())
@@ -92,8 +92,6 @@ class MainActivity : AppCompatActivity() {
             et3?.setText("")
             Toast.makeText(this, "No se ha encontrado ningun registro", Toast.LENGTH_SHORT).show()
         }
-
-
 
     }
 
