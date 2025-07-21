@@ -136,6 +136,7 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+<!--  boton de registrar-->
         <Button
             android:id="@+id/btnRegistrar"
             android:layout_width="200dp"
