@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lostrescerditos">
+    package="com.example.map_google">
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/anteojos"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LosTresCerditos">
-        <activity
-            android:name=".PagoConsumo"
-            android:exported="true" />
-        <activity
-            android:name=".PedidosBebidas"
-            android:exported="true" />
-        <activity
-            android:name=".PedidosPlatos"
-            android:exported="true" />
-        <activity
-            android:name=".AboutUs"
-            android:exported="true" />
-        <activity
-            android:name=".Menu"
-            android:exported="true" />
+        android:theme="@style/Theme.Map_Google">
         <activity
             android:name=".MainActivity"
             android:exported="true">
