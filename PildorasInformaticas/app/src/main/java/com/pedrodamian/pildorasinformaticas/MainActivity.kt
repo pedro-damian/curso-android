@@ -52,20 +52,31 @@ class MainActivity : AppCompatActivity() {
             else if(numero<18) "Eres menor de edad"
             else if(numero>18) "Eres mayor de edad"
             else "Tienes 18 años"
-
-
         }
 
+        // Incremento y Decremento
         sumar.setOnClickListener {
             var numero = et.text.toString().toIntOrNull()
             if (numero==null) resultado.text="Introduce un numero"
-            else et.setText((++numero).toString())
+            else {
+                et.setText((++numero).toString())
+                resultado.text= if (numero==null) "Introduce un numero"
+                else if(numero<18) "Eres menor de edad"
+                else if(numero>18) "Eres mayor de edad"
+                else "Tienes 18 años"
+            }
         }
 
         restar.setOnClickListener {
             var numero = et.text.toString().toIntOrNull()
             if (numero==null) resultado.text="Introduce un numero"
-            else et.setText((--numero).toString())
+            else {
+                et.setText((--numero).toString())
+                resultado.text= if (numero==null) "Introduce un numero"
+                else if(numero<18) "Eres menor de edad"
+                else if(numero>18) "Eres mayor de edad"
+                else "Tienes 18 años"
+            }
         }
 
     }
