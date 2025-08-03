@@ -1,6 +1,6 @@
 package model
 
-class Rectangulo(var color: Int, var alto: Int, var ancho: Int) {
+open class Rectangulo(var color: Int, var alto: Int, var ancho: Int) {
 
 
     var x: Int=0
@@ -19,7 +19,7 @@ class Rectangulo(var color: Int, var alto: Int, var ancho: Int) {
     }
 
     fun moverDerecha() {
-        x-=10
+        x+=10
     }
 
     fun cambiarTamaño(nuevoAncho: Int, nuevoAlto: Int) {
