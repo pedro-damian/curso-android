@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/rectangulo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="#FF0000"/>
+
+    <Button
+        android:id="@+id/btn_arriba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rectangulo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Arriba" />
+
+    <Button
+        android:id="@+id/btn_abajo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_arriba"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Abajo" />
+
+    <Button
+        android:id="@+id/btn_tamano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_abajo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Cambiar Tamano" />
+
+    <Button
+        android:id="@+id/btn_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_tamano"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Cambiar Color" />
+
+    <Button
+        android:id="@+id/btn_izquierda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rectangulo"
+        android:layout_toStartOf="@id/btn_arriba"
+        android:layout_marginEnd="20dp"
+        android:text="Izquierda" />
+
+    <Button
+        android:id="@+id/btn_derecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rectangulo"
+        android:layout_toEndOf="@id/btn_arriba"
+        android:layout_marginStart="20dp"
+        android:text="Derecha" />
+</RelativeLayout>

@@ -14,11 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
 
         val et: EditText = findViewById(R.id.et)
         val boton: Button = findViewById(R.id.button)
@@ -48,25 +43,65 @@ class MainActivity : AppCompatActivity() {
             else resultado.text="Tienes 18 años"*/
 
             // OPCION 3
-            resultado.text= if (numero==null) "Introduce un numero"
+            /*resultado.text= if (numero==null) "Introduce un numero"
             else if(numero<18) "Eres menor de edad"
             else if(numero>18) "Eres mayor de edad"
-            else "Tienes 18 años"
+            else "Tienes 18 años"*/
 
-
+            // OPCION 4 (con funcion)
+            mostrarMensaje(numero, resultado)
         }
 
+        // Incremento y Decremento
         sumar.setOnClickListener {
             var numero = et.text.toString().toIntOrNull()
             if (numero==null) resultado.text="Introduce un numero"
-            else et.setText((++numero).toString())
+            else {
+                et.setText((++numero).toString())
+                // OPCION 1
+                /*resultado.text= if (numero==null) "Introduce un numero"
+                else if(numero<18) "Eres menor de edad"
+                else if(numero>18) "Eres mayor de edad"
+                else "Tienes 18 años"*/
+
+                // OPCION 2 (con funcion)
+                mostrarMensaje(numero, resultado)
+            }
         }
 
         restar.setOnClickListener {
             var numero = et.text.toString().toIntOrNull()
             if (numero==null) resultado.text="Introduce un numero"
-            else et.setText((--numero).toString())
+            else {
+                et.setText((--numero).toString())
+                // OPCION 1
+                /*resultado.text= if (numero==null) "Introduce un numero"
+                else if(numero<18) "Eres menor de edad"
+                else if(numero>18) "Eres mayor de edad"
+                else "Tienes 18 años"*/
+
+                // OPCION 2 (con funcion)
+                mostrarMensaje(numero, resultado)
+            }
         }
+    }
+
+    fun mostrarMensaje(numeroEdad:Int?, mensajeTexto: TextView) {
+        /*mensajeTexto.text= if (numeroEdad==null) "Introduce un numero"
+        else if(numeroEdad<18) "Eres menor de edad"
+        else if(numeroEdad>18) "Eres mayor de edad"
+        else "Tienes 18 años"*/
+
+        val resultado = when {
+            numeroEdad==null -> "Introduce un numero"
+            numeroEdad <= 0 || numeroEdad > 150 -> "Introduzca una edad valida"
+            numeroEdad >= 18 && numeroEdad <= 30 || numeroEdad >= 51 && numeroEdad <= 80 -> "Descuento de 10%"
+            numeroEdad >= 31 && numeroEdad <= 50 -> "Descuento de 20%"
+
+            else -> "No pagan Pasaje"
+        }
+
+        mensajeTexto.text = resultado
 
     }
 }
